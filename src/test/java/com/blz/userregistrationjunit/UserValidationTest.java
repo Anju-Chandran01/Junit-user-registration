@@ -67,4 +67,20 @@ public class UserValidationTest {
         boolean result = validator.validateLastName("ah@#$%");
         Assertions.assertFalse(result);
     }
+
+    //Test for Email Should Return True
+    @Test
+    void givenEmailAddress_WhenProper_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validateEmailAddress("anju123@gmail.com");
+        Assertions.assertTrue(result);
+    }
+
+    //Test for invalid Email
+    @Test
+    void givenEmailAddress_WhenWrong_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validateEmailAddress("abc@.com.my");
+        Assertions.assertFalse(result);
+    }
 }
