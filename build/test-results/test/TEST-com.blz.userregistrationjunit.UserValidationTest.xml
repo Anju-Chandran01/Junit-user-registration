@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.blz.userregistrationjunit.UserValidationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-04-04T11:15:45" hostname="DESKTOP-OT33I41" time="0.096">
+<testsuite name="com.blz.userregistrationjunit.UserValidationTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-04-04T11:22:46" hostname="DESKTOP-OT33I41" time="0.212">
   <properties/>
-  <testcase name="givenFirstName_WhenProper_ShouldReturnTrue()" classname="com.blz.userregistrationjunit.UserValidationTest" time="0.093"/>
-  <testcase name="givenFirstName_WhenImroper_ShouldReturnFalse()" classname="com.blz.userregistrationjunit.UserValidationTest" time="0.001"/>
+  <testcase name="givenLastName_WhenLessThanThreeCharacter_ShouldReturnFalse()" classname="com.blz.userregistrationjunit.UserValidationTest" time="0.034"/>
+  <testcase name="givenFirstName_WhenProper_ShouldReturnTrue()" classname="com.blz.userregistrationjunit.UserValidationTest" time="0.137"/>
+  <testcase name="givenFirstName_WhenLessThanThreeCharacter_ShouldReturnFalse()" classname="com.blz.userregistrationjunit.UserValidationTest" time="0.005"/>
+  <testcase name="givenFirstName_WhenFirsLetterSmall_ShouldReturnFalse()" classname="com.blz.userregistrationjunit.UserValidationTest" time="0.014"/>
+  <testcase name="givenLastName_WhenProper_ShouldReturnTrue()" classname="com.blz.userregistrationjunit.UserValidationTest" time="0.002"/>
+  <testcase name="givenLastName_WhenLowerCase_ShouldReturnFalse()" classname="com.blz.userregistrationjunit.UserValidationTest" time="0.002"/>
+  <testcase name="givenFirstName_WhenSpCharacters_ShouldReturnFalse()" classname="com.blz.userregistrationjunit.UserValidationTest" time="0.002"/>
+  <testcase name="givenLastName_WhenSpecialCharacter_ShouldReturnFalse()" classname="com.blz.userregistrationjunit.UserValidationTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
