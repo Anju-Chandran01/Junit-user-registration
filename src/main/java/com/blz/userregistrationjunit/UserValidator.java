@@ -13,7 +13,7 @@ public class UserValidator {
     //Phone Number Regular Expression
     private static final String PHONE_NUMBER_PATTERN = "^[0-9]{2}+[\\s][0-9]{10}$";
     //Password Regular Expression
-    private static final String PASSWORD_PATTERN = "[0-9a-zA-Z]{8}[0-9a-zA-Z]*";
+    private static final String PASSWORD_PATTERN = "^(?=.[A-Za-z0-9])(?=.*[A-Z]).{8,}$";
 
     //Checking boolean Value for First Name
     public boolean validateFirstName(String firstName) {
@@ -39,7 +39,7 @@ public class UserValidator {
         return pattern.matcher(phoneNumber).matches();
     }
 
-    //checking boolean value for password
+    // checking boolean value for password
     public boolean validatePassword(String password) {
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
         return pattern.matcher(password).matches();

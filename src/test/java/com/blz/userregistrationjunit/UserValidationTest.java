@@ -123,4 +123,20 @@ public class UserValidationTest {
         boolean result = validator.validatePassword("a122");
         Assertions.assertFalse(result);
     }
+
+    //Test for one capital letter should return True
+    @Test
+    void givenPassword_WhenWithOneCapital_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("A1234567");
+        Assertions.assertTrue(result);
+    }
+
+    //Test for without capital letter should return false
+    @Test
+    void givenPassword_WhenWithoutOneCapital_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("12345678");
+        Assertions.assertFalse(result);
+    }
 }
