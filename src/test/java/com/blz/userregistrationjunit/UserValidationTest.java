@@ -136,7 +136,7 @@ public class UserValidationTest {
     @Test
     void givenPassword_WhenWithoutOneCapital_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validatePassword("12345678");
+        boolean result = validator.validatePassword("23456789");
         Assertions.assertFalse(result);
     }
 }
