@@ -139,4 +139,20 @@ public class UserValidationTest {
         boolean result = validator.validatePassword("23456789");
         Assertions.assertFalse(result);
     }
+
+    //Test for password one number should return true
+    @Test
+    void givenPassword_WhenWithOneNumeric_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("Anju12334");
+        Assertions.assertTrue(result);
+    }
+
+    //Test for password one number should return true
+    @Test
+    void givenPassword_WhenWithoutOneNumeric_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("Anjuchandr");
+        Assertions.assertFalse(result);
+    }
 }
