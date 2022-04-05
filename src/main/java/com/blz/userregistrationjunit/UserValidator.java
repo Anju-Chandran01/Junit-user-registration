@@ -12,6 +12,8 @@ public class UserValidator {
     private static final String EMAIL_ADDRESS_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     //Phone Number Regular Expression
     private static final String PHONE_NUMBER_PATTERN = "^[0-9]{2}+[\\s][0-9]{10}$";
+    //Password Regular Expression
+    private static final String PASSWORD_PATTERN = "^(?=.[A-Za-z0-9])(?=.*[A-Z]).{8,}$";
 
     //Checking boolean Value for First Name
     public boolean validateFirstName(String firstName) {
@@ -35,5 +37,11 @@ public class UserValidator {
     public boolean validatePhoneNumber(String phoneNumber) {
         Pattern pattern = Pattern.compile(PHONE_NUMBER_PATTERN);
         return pattern.matcher(phoneNumber).matches();
+    }
+
+    // checking boolean value for password
+    public boolean validatePassword(String password) {
+        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        return pattern.matcher(password).matches();
     }
 }
