@@ -8,7 +8,7 @@ public class UserValidationTest {
     @Test
     public void givenFirstName_WhenProper_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("Asim");
+        boolean result = validator.validateFirstName("Anju");
         Assertions.assertTrue(result);
     }
 
@@ -16,7 +16,7 @@ public class UserValidationTest {
     @Test
     public void givenFirstName_WhenFirsLetterSmall_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("asim");
+        boolean result = validator.validateFirstName("anju");
         Assertions.assertFalse(result);
     }
 
@@ -24,7 +24,7 @@ public class UserValidationTest {
     @Test
     public void givenFirstName_WhenLessThanThreeCharacter_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("As");
+        boolean result = validator.validateFirstName("An");
         Assertions.assertFalse(result);
     }
 
@@ -32,7 +32,7 @@ public class UserValidationTest {
     @Test
     public void givenFirstName_WhenSpCharacters_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("as@#$");
+        boolean result = validator.validateFirstName("an@#$");
         Assertions.assertFalse(result);
     }
 
@@ -40,7 +40,7 @@ public class UserValidationTest {
     @Test
     public void givenLastName_WhenProper_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateLastName("Ahammed");
+        boolean result = validator.validateLastName("Chandran");
         Assertions.assertTrue(result);
     }
 
@@ -48,7 +48,7 @@ public class UserValidationTest {
     @Test
     public void givenLastName_WhenLowerCase_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateLastName("ahammed");
+        boolean result = validator.validateLastName("chandran");
         Assertions.assertFalse(result);
     }
 
@@ -72,7 +72,7 @@ public class UserValidationTest {
     @Test
     void givenEmailAddress_WhenProper_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateEmailAddress("asim123@gmail.com");
+        boolean result = validator.validateEmailAddress("anju123@gmail.com");
         Assertions.assertTrue(result);
     }
 
@@ -99,60 +99,20 @@ public class UserValidationTest {
         boolean result = validator.validatePhoneNumber("911234567890");
         Assertions.assertFalse(result);
     }
-
-    //Test for less than 10 digit Number Should return false
+    
+    //Test for password one special character should return true
     @Test
-    public void givenPhoneNumber_WhenLessThanTenDigit_ShouldReturnFalse() {
+    void givenPassword_WhenWithOneSpecialChara_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validatePhoneNumber("91 159784");
-        Assertions.assertFalse(result);
-    }
-
-    //Test for Valid Password Should Return True ( minimum 8 Character)
-    @Test
-    public void givenPassword_WhenProper_ShouldReturnTrue() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validatePassword("12345678");
-        Assertions.assertTrue(result);
-    }
-
-    //Test for Password Without eight letters Should Return False
-    @Test
-    void givenPassword_WhenWithoutUppercaseCharacters_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validatePassword("a122");
-        Assertions.assertFalse(result);
-    }
-
-    //Test for one capital letter should return True
-    @Test
-    void givenPassword_WhenWithOneCapital_ShouldReturnTrue() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validatePassword("A1234567");
-        Assertions.assertTrue(result);
-    }
-
-    //Test for without capital letter should return false
-    @Test
-    void givenPassword_WhenWithoutOneCapital_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validatePassword("23456789");
-        Assertions.assertFalse(result);
-    }
-
-    //Test for password one number should return true
-    @Test
-    void givenPassword_WhenWithOneNumeric_ShouldReturnTrue() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validatePassword("Anju12334");
+        boolean result = validator.validatePassword("Anju@1334");
         Assertions.assertTrue(result);
     }
 
     //Test for password one number should return true
     @Test
-    void givenPassword_WhenWithoutOneNumeric_ShouldReturnTrue() {
+    void givenPassword_WhenWithoutOneSpecialCharachters_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validatePassword("Anjuchandr");
+        boolean result = validator.validatePassword("Anjua4sdf");
         Assertions.assertFalse(result);
     }
 }
