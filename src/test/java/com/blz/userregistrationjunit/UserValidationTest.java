@@ -4,121 +4,71 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class UserValidationTest {
-    //Name Written in Proper way
-    @Test
-    public void givenFirstName_WhenProper_ShouldReturnTrue() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("Anju");
-        Assertions.assertEquals(true, result);
-    }
 
-    //Name Written in LowerCase for Testing
     @Test
-    public void givenFirstName_WhenFirsLetterSmall_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("anju");
-        Assertions.assertFalse(result);
-    }
-
-    //Name Written Less Than 3 Character
-    @Test
-    public void givenFirstName_WhenLessThanThreeCharacter_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("As");
-        Assertions.assertFalse(result);
-    }
-
-    //Testcase for special Characters
-    @Test
-    public void givenFirstName_WhenSpCharacters_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("as@#$");
-        Assertions.assertFalse(result);
-    }
-
-    //Last Name In Proper Way
-    @Test
-    public void givenLastName_WhenProper_ShouldReturnTrue() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validateLastName("Chandran");
-        Assertions.assertEquals(true, result);
-    }
-
-    //Test for Lowercase
-    @Test
-    public void givenLastName_WhenLowerCase_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validateLastName("chandran");
-        Assertions.assertFalse(result);
-    }
-
-    //Test for less than 3 character
-    @Test
-    public void givenLastName_WhenLessThanThreeCharacter_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validateLastName("ah");
-        Assertions.assertFalse(result);
-    }
-
-    //Test for Special Character
-    @Test
-    public void givenLastName_WhenSpecialCharacter_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validateLastName("ah@#$%");
-        Assertions.assertFalse(result);
-    }
-
-    //Test for Email Should Return True
-    @Test
-    void givenEmailAddress_WhenProper_ShouldReturnTrue() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validateEmailAddress("anju123@gmail.com");
-        Assertions.assertEquals(true, result);
-    }
-
-    //Test for invalid Email
-    @Test
-    void givenEmailAddress_WhenWrong_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validateEmailAddress("abc@.com.my");
-        Assertions.assertFalse(result);
-    }
-
-    //Test for valid Mobile Number Should Return True
-    @Test
-    public void givenPhoneNumber_WhenProper_ShouldReturnTrue() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validatePhoneNumber("91 1234567890");
+    public void givenFirstName_WhenValid_ShouldReturnTrue() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.FirstNameValidate("Anju");
         Assertions.assertTrue(result);
     }
 
-    //Test for Invalid Mobile Number Should return false
     @Test
-    public void givenPhoneNumber_WhenNoSpaceFollow_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validatePhoneNumber("911234567890");
-        Assertions.assertFalse(result);
+    public void givenFirstName_WhenInvalid_ShouldReturnFalse() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.FirstNameValidate("an");
+        Assertions.assertFalse(result);			}
+
+    @Test
+    public void givenLastName_WhenValid_ShouldReturnTrue() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.LastNameValidate("Anju");
+        Assertions.assertTrue(result);
     }
 
-    //Test for less than 10 digit Number Should return false
     @Test
-    public void givenPhoneNumber_WhenLessThanTenDigit_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.validatePhoneNumber("91 159784");
+    public void givenLastName_WhenInvalid_ShouldReturnFalse() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.LastNameValidate("an");
+        Assertions.assertFalse(result);			}
+
+    @Test
+    public void givenEmailAddress_WhenValid_ShouldReturnTrue() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.emailValidator("anju162@gmail.com");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenEmailAddress_WhenInvalid_ShouldReturnTrue() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.emailValidator("abc()*@gmail.com");
+        Assertions.assertFalse(result);			}
+
+    @Test
+    public void givenPhoneNumber_WhenValid_ShouldReturnTrue() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.phoneNumberValidator("919923456789");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenInvalid_ShouldReturnFalse() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.phoneNumberValidator("9825236");
         Assertions.assertFalse(result);
     }
 
     @Test
     public void givenPassword_WhenValid_ShouldReturnTrue() {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validatePassword("Anju@123");
+        boolean result = userValidator.passwordValidator("Anju@123");
         Assertions.assertTrue(result);
     }
 
     @Test
     public void givenPassword_WhenInvalid_ShouldReturnTrue() {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validatePassword("anju@#$12");
+        boolean result = userValidator.passwordValidator("anju@#$12");
         Assertions.assertFalse(result);
     }
 }
